@@ -97,9 +97,9 @@ const Contact = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
-                src="https://www.google.com/maps?q=Rua%20Vicente%20Rodrigues%2C%20502%2C%20Sumar%C3%A9%20-%20SP&output=embed"
+                src="https://www.google.com/maps?q=Felix+Garage&output=embed"
                 className="w-full h-full border-0"
-                title="Localização da Allavento"
+                title="Localização da Felix Garage"
               />
             </div>
           </div>

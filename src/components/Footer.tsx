@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="py-10 text-center text-muted-foreground text-sm">
       <div className="container mx-auto max-w-[1200px] px-5">
-        © {currentYear} Allavento — Serviços Automotivos de Alta Qualidade
+        © {currentYear} Felix Garage — Oficina Mecânica Especializada
       </div>
     </footer>
   );

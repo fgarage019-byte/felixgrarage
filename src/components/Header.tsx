@@ -16,7 +16,7 @@ const Header = () => {
           onClick={() => scrollToSection('hero')}
           className="font-montserrat font-extrabold text-xl tracking-[2px] hover:opacity-80 transition-opacity"
         >
-          ALLA<span className="text-primary">VENTO</span>
+          FELIX <span className="text-primary">GARAGE</span>
         </button>
 
         {/* Desktop Navigation */}

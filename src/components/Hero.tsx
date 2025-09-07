@@ -22,10 +22,10 @@ const Hero = () => {
       
       <div className="relative max-w-3xl mx-auto text-center px-5">
         <h1 className="font-montserrat text-3xl sm:text-4xl lg:text-5xl leading-tight mb-2.5">
-          Confira alguns de nossos principais serviços
+          Felix Garage - Sua oficina de confiança
         </h1>
         <p className="text-muted-foreground text-lg mb-6">
-          Qualidade e confiança em cada detalhe do seu veículo.
+          Serviços automotivos especializados com qualidade e tradição familiar.
         </p>
         <Button 
           variant="automotive" 

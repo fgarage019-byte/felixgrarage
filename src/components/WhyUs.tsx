@@ -29,7 +29,7 @@ const WhyUs = () => {
     <section id="why-us" className="py-16 scroll-mt-20">
       <div className="container mx-auto max-w-[1200px] px-5">
         <h2 className="font-montserrat text-2xl sm:text-3xl mb-8">
-          Vantagens da Kemap Allavento
+          Por que escolher a Felix Garage?
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4">

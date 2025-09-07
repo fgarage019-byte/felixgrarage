@@ -14,17 +14,17 @@ const About = () => {
             </div>
             
             <h2 className="font-montserrat text-2xl sm:text-3xl mb-2">
-              Excelência para quem exige o melhor
+              Tradição e qualidade em serviços automotivos
             </h2>
             <p className="text-muted-foreground -mt-2 mb-4">
-              Na Allavento, oferecemos soluções completas para diversas marcas e modelos.
+              Na Felix Garage, oferecemos soluções completas para seu veículo com atendimento personalizado.
             </p>
             
             <ul className="space-y-2.5 mb-6">
               {[
-                "Oficinas de alto nível da PAC",
-                "Pessoas que buscam qualidade", 
-                "Profissionais que exigem excelência"
+                "Atendimento personalizado e familiar",
+                "Diagnósticos precisos e confiáveis", 
+                "Peças originais e garantia de serviço"
               ].map((item, index) => (
                 <li key={index} className="flex items-center gap-2.5 text-primary-foreground/90">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
