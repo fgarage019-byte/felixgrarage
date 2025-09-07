@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import audiImage from '@/assets/audi-garage.jpg';
+import porscheImage from '@/assets/porsche-garage.jpg';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -34,6 +36,24 @@ const Hero = () => {
         >
           REALIZAR AGENDAMENTO
         </Button>
+        
+        {/* Car Images */}
+        <div className="flex gap-6 justify-center mt-12">
+          <div className="w-80 h-48 overflow-hidden rounded-lg shadow-lg">
+            <img 
+              src={audiImage} 
+              alt="Audi A4 na Felix Garage" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="w-80 h-48 overflow-hidden rounded-lg shadow-lg">
+            <img 
+              src={porscheImage} 
+              alt="Porsche 911 na Felix Garage" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );
