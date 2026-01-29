@@ -26,7 +26,7 @@ const About = () => {
                 "Diagnósticos precisos e confiáveis", 
                 "Peças originais e garantia de serviço"
               ].map((item, index) => (
-                <li key={index} className="flex items-center gap-2.5 text-primary-foreground/90">
+                <li key={index} className="flex items-center gap-2.5 text-foreground/90">
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                   {item}
                 </li>
@@ -40,7 +40,7 @@ const About = () => {
                 className="w-16 h-16 object-cover rounded-lg"
               />
               <div>
-                <h3 className="font-montserrat text-base mb-1.5">MOVIVAN VISION RECORDER</h3>
+                <h3 className="font-montserrat text-base mb-1.5 text-foreground">MOVIVAN VISION RECORDER</h3>
                 <p className="text-muted-foreground text-sm m-0">
                   Tecnologia de ponta para diagnósticos precisos.
                 </p>
