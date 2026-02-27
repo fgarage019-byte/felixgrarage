@@ -1,37 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
   };
 
+  const navItems = [
+    { label: 'Home', id: 'hero' },
+    { label: 'Serviços', id: 'services' },
+    { label: 'Sobre Nós', id: 'about' },
+    { label: 'Importados', id: 'importados' },
+    { label: 'Contato', id: 'contact' },
+  ];
+
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/80 border-b border-white/6">
-      <nav className="flex items-center justify-between gap-4 px-5 py-3.5 max-w-[1200px] mx-auto">
-        <button 
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-background/95 backdrop-blur-xl border-b border-border shadow-automotive'
+          : 'bg-transparent'
+      }`}
+    >
+      <nav className="flex items-center justify-between gap-4 px-6 py-4 max-w-[1200px] mx-auto">
+        <button
           onClick={() => scrollToSection('hero')}
-          className="font-montserrat font-extrabold text-xl tracking-[2px] hover:opacity-80 transition-opacity"
+          className="font-montserrat font-extrabold text-xl tracking-[3px] hover:opacity-80 transition-opacity"
         >
           FELIX <span className="text-primary">GARAGE</span>
         </button>
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex gap-6 list-none">
-          {[
-            { label: 'Home', id: 'hero' },
-            { label: 'Serviços', id: 'services' },
-            { label: 'Sobre Nós', id: 'about' },
-            { label: 'Depoimentos', id: 'testimonials' },
-            { label: 'Contato', id: 'contact' }
-          ].map((item) => (
+        <ul className="hidden lg:flex gap-7 list-none">
+          {navItems.map((item) => (
             <li key={item.id}>
-              <button 
+              <button
                 onClick={() => scrollToSection(item.id)}
-                className="text-muted-foreground font-semibold hover:text-foreground transition-colors"
+                className="text-muted-foreground font-medium text-sm hover:text-foreground transition-colors uppercase tracking-wide"
               >
                 {item.label}
               </button>
@@ -39,46 +55,48 @@ const Header = () => {
           ))}
         </ul>
 
-        <Button 
-          variant="automotive" 
+        <Button
+          variant="automotive"
           size="lg"
           onClick={() => scrollToSection('contact')}
           className="hidden sm:inline-flex whitespace-nowrap"
         >
-          REALIZAR AGENDAMENTO
+          AGENDAMENTO
         </Button>
 
         {/* Mobile hamburger */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden p-2"
           aria-label="Abrir menu"
         >
-          <span className="w-6 h-0.5 bg-foreground rounded-sm transition-all"></span>
-          <span className="w-6 h-0.5 bg-foreground rounded-sm transition-all"></span>
-          <span className="w-6 h-0.5 bg-foreground rounded-sm transition-all"></span>
+          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute top-16 right-4 bg-card border border-white/6 rounded-lg p-4 shadow-automotive min-w-[220px]">
-            <ul className="flex flex-col gap-3">
-              {[
-                { label: 'Home', id: 'hero' },
-                { label: 'Serviços', id: 'services' },
-                { label: 'Sobre Nós', id: 'about' },
-                { label: 'Depoimentos', id: 'testimonials' },
-                { label: 'Contato', id: 'contact' }
-              ].map((item) => (
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-background/98 backdrop-blur-xl border-b border-border p-6">
+            <ul className="flex flex-col gap-4">
+              {navItems.map((item) => (
                 <li key={item.id}>
-                  <button 
+                  <button
                     onClick={() => scrollToSection(item.id)}
-                    className="text-muted-foreground font-semibold hover:text-foreground transition-colors text-left w-full"
+                    className="text-muted-foreground font-medium hover:text-foreground transition-colors text-left w-full uppercase tracking-wide"
                   >
                     {item.label}
                   </button>
                 </li>
               ))}
+              <li>
+                <Button
+                  variant="automotive"
+                  size="lg"
+                  onClick={() => scrollToSection('contact')}
+                  className="w-full mt-2"
+                >
+                  AGENDAMENTO
+                </Button>
+              </li>
             </ul>
           </div>
         )}
