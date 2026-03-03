@@ -1,0 +1,101 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-allvento-dark text-allvento-white;
+  }
+
+  h1 {
+    @apply font-play text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+
+  h2 {
+    @apply font-play text-3xl md:text-4xl font-bold;
+  }
+
+  h3 {
+    @apply font-play text-xl md:text-2xl font-bold;
+  }
+
+  button {
+    transition: all 0.3s ease;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-3 bg-felix-orange text-black font-lato font-bold uppercase tracking-wider rounded-lg hover:bg-felix-orange-dark hover:scale-105 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 border-2 border-felix-purple text-felix-purple font-lato font-bold uppercase tracking-wider rounded-lg hover:bg-felix-purple hover:text-white transition-all duration-300;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+  }
+
+  .service-card {
+    @apply relative rounded-2xl overflow-hidden bg-gradient-to-br from-felix-black to-felix-dark h-64 md:h-80 transition-transform duration-300;
+  }
+
+  .service-card:hover {
+    transform: scale(1.05);
+  }
+
+  .service-card-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70 transition-opacity duration-300;
+  }
+
+  .service-card:hover .service-card-overlay {
+    @apply opacity-80;
+  }
+
+  .service-card-content {
+    @apply absolute inset-0 flex flex-col justify-end p-6 text-white;
+  }
+
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600 hover:scale-110 transition-all duration-300 shadow-lg z-40;
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    animation: slideUp 0.8s ease forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #5636d1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFA500;
+}
